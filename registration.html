@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Registration</title>
+	<link rel="stylesheet" href="styleReg.css">
+</head>
+<body>
+	<script src="Logic/storage.js"></script>
+	<div class="content">
+		<form id="RegistrationForm" name="DifficultyChoose" action="game.html" method="GET" autocomplete="off">
+			<h2 align="center">Nickname:</h2>
+			<input name="Nickname" type="text" class="UserInfo" required pattern="^([A-Za-z]|\s){1,25}$" title="Possible symbols: English letters and spaces (Less than 25 symbols)"><br>
+			<h2 align="center">Game Difficulty:</h2>
+
+			<div class="DifficultyContainer">
+				<div class="DifficultyBlock"><input type="submit" value="Easy" name="Difficulty"></div>
+				<div class="DifficultyBlock"><input type="submit" value="Medium" name="Difficulty"></div>
+				<div class="DifficultyBlock"><input type="submit" value="Hard" name="Difficulty"></div>
+			</div>
+		</form>	
+		<a href="intro.html">Back</a>
+	</div>
+</body>

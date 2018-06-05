@@ -1,0 +1,89 @@
+html {
+	height: 100%;
+}
+
+body{
+	background-image: url(images/2844.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	margin: 0px;
+	height: 100%;
+
+    font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background: rgba(139, 140, 62, 0.66);
+	border: black 1px solid;
+	border-radius: 10px;
+	
+	width: 400px;
+	height: 285px;
+	padding: 24px;
+	margin: 10px;
+}
+
+.DifficultyContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.DifficultyBlock input{
+	background: rgba(139, 140, 62, 1);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	margin: 8px;
+	padding: 2px;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none; 
+	color: inherit;
+}
+
+#RegistrationForm{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+a{
+	background: rgba(139, 140, 62, 1);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	margin: 20px;
+	padding: 2px;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none; 
+	color: inherit;
+}
+
+.UserInfo{
+	background: rgba(255, 255, 255, 0.36);
+	border: black 1px solid;
+	border-radius: 2px;
+	width: 150px;
+}

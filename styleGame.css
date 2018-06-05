@@ -1,0 +1,146 @@
+body{
+	background-image: url(images/2845.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
+}
+
+h1{
+	color: black;
+}
+
+#memory-board{
+	background: rgba(39, 110, 62, 0.46);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 1260px;
+	height: 645px;
+	padding: 24px;
+	margin: 0px auto;
+	margin-top: 10px;
+}
+
+#memory-board > div{
+	background: green;
+	border: #000 1px solid;
+	border-radius: 10px;
+	backface-visibility: hidden;
+	width: 95px;
+	height: 152px;
+	float: left;
+	margin: 10px;
+	padding: 20px;
+	font-size: 64px;
+	cursor: pointer;
+	text-align: center;
+}
+
+
+#controls{
+	background: rgba(39, 110, 62, 0.46);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 24px;
+	margin: 10px auto;
+	width: 860px;
+	height: 45px;
+}
+
+#controls > div{
+	background: rgba(39, 140, 62, 1);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	margin: 1px;
+	padding: 2px;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+}
+
+#controls > a{
+	background: rgba(39, 140, 62, 1);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	margin: 1px;
+	padding: 2px;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none; 
+	color: inherit;
+}
+
+#sleeves{
+	background: rgba(39, 110, 62, 0.46);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 10px auto;
+	width: 860px;
+	height: 0px;
+}
+
+#sleeves > div{
+	background: green;
+	border: #000 1px solid;
+	border-radius: 10px;
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+	width: 95px;
+	height: 152px;
+	float: left;
+	margin: 10px;
+	padding: 20px;
+	font-size: 64px;
+	cursor: pointer;
+	text-align: center;
+}
+
+#info{
+	background: rgba(39, 110, 62, 0.46);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 24px;
+	margin: 10px auto;
+	width: 860px;
+	height: 45px;
+}
+
+#info > div{
+	background: rgba(39, 140, 62, 1);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	margin: 1px;
+	padding: 2px;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+}

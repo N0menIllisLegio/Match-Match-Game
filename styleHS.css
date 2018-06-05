@@ -1,0 +1,77 @@
+html {
+	height: 100%;
+}
+
+body{
+	background-image: url(images/2842.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	margin: 0px;
+	height: 100%;
+	font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#content{
+	background: rgba(39, 110, 62, 0.46);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: center;
+
+	width: 1000px;
+	height: 545px;
+	padding: 24px;
+	margin: 10px;
+}
+
+#records-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#records-content{
+	margin: 40px;
+}
+
+#records-container table {
+  border: 1px ridge black;
+  background-color: #EEEEEE;
+  color: rgb(39, 110, 62);
+  text-align: center;
+  border-radius: 5px;
+}
+
+#table-name h3{
+  	border: 1px ridge black;
+	color: white;
+	background-color: rgb(39, 110, 62);
+	padding: 5px;
+	border-radius: 5px;
+}
+
+a{
+	background: rgba(39, 140, 62, 1);
+	border: black 1px solid;
+	border-radius: 10px;
+	display: flex;
+	margin: 1px;
+	padding: 2px;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none; 
+	color: inherit;
+}
+
