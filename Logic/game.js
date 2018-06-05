@@ -1,11 +1,11 @@
-let storage_array = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H','I','I','J','J','K','K','L','L'];
-let memory_backs = [
+let storageArray = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H','I','I','J','J','K','K','L','L'];
+let memoryBacks = [
 						'back1',
 						'back2',
 						'back3',
 						'back4'
 					]
-let memory_fronts = {
+let memoryFronts = {
 					 "A": "Fronts/A.jpg",
 					 "B": "Fronts/B.jpg",
 					 "C": "Fronts/C.jpg",
@@ -20,28 +20,29 @@ let memory_fronts = {
 					 "L": "Fronts/L.jpg"
 					}
 
-let memory_array = [];
-let memory_values = [];
-let memory_tile_ids = [];
-let tiles_flipped = 0;
-let picked_back = 3;
+let memoryArray = [];
+let memoryValues = [];
+let memoryTileIds = [];
+let tilesFlipped = 0;
+let pickedBack = 3;
 let counter = 0;
 
 
-let UserData = [];
-let Data = window.location.search.substring(1).split('&');
-while(Part = Data.shift()) 
+let userdata = [];
+let data = window.location.search.substring(1).split('&');
+
+while(Part = data.shift()) 
 {
    	Part = Part.split('=');
-   	UserData.push(decodeURIComponent(Part[1]));
+   	userdata.push(decodeURIComponent(Part[1]));
 }
 
-let nickName = UserData[0];
-let gameMode = UserData[1];
+let nickName = userdata[0];
+let gameMode = userdata[1];
 
 
 
-Array.prototype.memory_tile_shuffle = function(){
+Array.prototype.memoryTileShuffle = function(){
     let i = this.length, j, temp;
     while(--i > 0){
         j = Math.floor(Math.random() * (i + 1));
@@ -63,9 +64,9 @@ function info(id){
 }
 
 function newBoard(){
-	tiles_flipped = 0;
-	memory_values = [];
-	memory_tile_ids = [];
+	tilesFlipped = 0;
+	memoryValues = [];
+	memoryTileIds = [];
 	let output = '';
 	info('info');		
 
@@ -74,15 +75,15 @@ function newBoard(){
 	{
 		case 'Easy':
 			document.getElementById('memory-board').style.width = "700px";
-			memory_array = storage_array.slice(0, 12);
+			memoryArray = storageArray.slice(0, 12);
 			break;
 		case 'Medium':
 			document.getElementById('memory-board').style.width = "1000px";
-			memory_array = storage_array.slice(0, 18);
+			memoryArray = storageArray.slice(0, 18);
 			break;
 		case 'Hard':
 			document.getElementById('memory-board').style.width = "1260px";
-			memory_array = storage_array.slice(0, 24);
+			memoryArray = storageArray.slice(0, 24);
 			break;
 	}
 
@@ -93,9 +94,9 @@ function newBoard(){
 	, 200);
 
 	setTimeout(function delay(){
-	    memory_array.memory_tile_shuffle();
-		for(let i = 0; i < memory_array.length; i++){
-			output += '<div id="tile_'+ i +'"style="background: url(Backs/' + memory_backs[picked_back] + '.png); no-repeat; background-size: cover;" onclick="memoryFlipTile(this,\'' + memory_array[i] + '\')"></div>';
+	    memoryArray.memoryTileShuffle();
+		for(let i = 0; i < memoryArray.length; i++){
+			output += '<div id="tile_'+ i +'"style="background: url(Backs/' + memoryBacks[pickedBack] + '.png); no-repeat; background-size: cover;" onclick="memoryFlipTile(this,\'' + memoryArray[i] + '\')"></div>';
 		}
 		document.getElementById('memory-board').innerHTML = output;
 		counter = 0;
@@ -104,29 +105,29 @@ function newBoard(){
 }
 
 function changeToBack(tile){
-	tile.style.background = 'url(Backs/' + memory_backs[picked_back] + '.png)';
+	tile.style.background = 'url(Backs/' + memoryBacks[pickedBack] + '.png)';
 	tile.style.backgroundRepeat = "no-repeat";
 	tile.style.backgroundSize = 'cover';
 }
 
 function changeBack(tile, val){
-	tile.style.background = 'url(' + memory_fronts[val] + ')';
+	tile.style.background = 'url(' + memoryFronts[val] + ')';
 	tile.style.backgroundRepeat = "no-repeat";
 	tile.style.backgroundSize = 'cover';
 }
 
 function flip2Back(){
-	let tile_1 = document.getElementById(memory_tile_ids[0]);
-	let tile_2 = document.getElementById(memory_tile_ids[1]);
-	tile_1.style.transition = "transform .5s linear 0s";
-	tile_1.style.transform = "perspective(600px) rotateY(0deg)";
-	setTimeout(changeToBack, 250, tile_1);
-	tile_2.style.transition = "transform .5s linear 0s";
-	tile_2.style.transform = "perspective(600px) rotateY(0deg)";
-	setTimeout(changeToBack, 250, tile_2);
+	let tile1 = document.getElementById(memoryTileIds[0]);
+	let tile2 = document.getElementById(memoryTileIds[1]);
+	tile1.style.transition = "transform .5s linear 0s";
+	tile1.style.transform = "perspective(600px) rotateY(0deg)";
+	setTimeout(changeToBack, 250, tile1);
+	tile2.style.transition = "transform .5s linear 0s";
+	tile2.style.transform = "perspective(600px) rotateY(0deg)";
+	setTimeout(changeToBack, 250, tile2);
 
-	memory_values = [];
-	memory_tile_ids = [];
+	memoryValues = [];
+	memoryTileIds = [];
 }
 
 function clear(){
@@ -135,7 +136,7 @@ function clear(){
 }
 
 function restart(){
-	for (let i = 0; i < memory_array.length; i++) {
+	for (let i = 0; i < memoryArray.length; i++) {
 		let tile = document.getElementById('tile_' + i);
 		if (tile != null && tile.style.transform == "perspective(600px) rotateY(180deg)") {
 			tile.style.transition = "transform .5s linear 0s";
@@ -147,8 +148,8 @@ function restart(){
 }
 
 function vanish(){
-	let tile1 = document.getElementById(memory_tile_ids[0]);
-	let tile2 = document.getElementById(memory_tile_ids[1]);
+	let tile1 = document.getElementById(memoryTileIds[0]);
+	let tile2 = document.getElementById(memoryTileIds[1]);
 
 	tile1.style.transition = "opacity .5s linear 0s";
 	tile1.style.opacity = "0";
@@ -156,28 +157,28 @@ function vanish(){
 		tile2.style.transition = "opacity .5s linear 0s";
 		tile2.style.opacity = "0";		
 	}, 250);
-	memory_values = [];
-	memory_tile_ids = [];
+	memoryValues = [];
+	memoryTileIds = [];
 }
 
 function memoryFlipTile(tile, val){
-	if(tile.style.transform != "perspective(600px) rotateY(180deg)" && memory_values.length < 2){
+	if(tile.style.transform != "perspective(600px) rotateY(180deg)" && memoryValues.length < 2){
 		tile.style.transition = "transform .5s linear 0s";
 		tile.style.transform = "perspective(600px) rotateY(180deg)";
 		setTimeout(changeBack, 250, tile, val);
 
-		if(memory_values.length == 0){
-			memory_values.push(val);
-			memory_tile_ids.push(tile.id);
-		} else if(memory_values.length == 1){
-			memory_values.push(val);
-			memory_tile_ids.push(tile.id);
-			if(memory_values[0] == memory_values[1]){
-				tiles_flipped += 2;
+		if(memoryValues.length == 0){
+			memoryValues.push(val);
+			memoryTileIds.push(tile.id);
+		} else if(memoryValues.length == 1){
+			memoryValues.push(val);
+			memoryTileIds.push(tile.id);
+			if(memoryValues[0] == memoryValues[1]){
+				tilesFlipped += 2;
 
 				setTimeout(vanish(), 500);
 
-				if(tiles_flipped == memory_array.length){
+				if(tilesFlipped == memoryArray.length){
 					Victory(document.getElementById('memory-board'));
 				}
 			} else {
@@ -189,8 +190,8 @@ function memoryFlipTile(tile, val){
 
 function _showSleeves(element){
 	let output = '';
-	for(let i = 0; i < memory_backs.length; i++){
-		output += '<div id="tile_'+ i +'"style="background: url(Backs/' + memory_backs[i] + '.png); no-repeat; background-size: cover;" onclick="changeSleeve(\'' + i + '\')"></div>';
+	for(let i = 0; i < memoryBacks.length; i++){
+		output += '<div id="tile_'+ i +'"style="background: url(Backs/' + memoryBacks[i] + '.png); no-repeat; background-size: cover;" onclick="changeSleeve(\'' + i + '\')"></div>';
 	}
 	element.innerHTML = output;
 }
@@ -213,12 +214,12 @@ function showSleeves(element){
 }
 
 function changeSleeve(num){
-	picked_back = num;
-	for (let i = 0; i < memory_array.length; i++) {
+	pickedBack = num;
+	for (let i = 0; i < memoryArray.length; i++) {
 		let tile = document.getElementById('tile_' + i);
 		if (tile.style.transform != "perspective(600px) rotateY(180deg)") {
 			tile.style.transition = "background .5s linear 0s";
-			tile.style.background = 'url(Backs/' + memory_backs[picked_back] + '.png)';
+			tile.style.background = 'url(Backs/' + memoryBacks[pickedBack] + '.png)';
 			tile.style.backgroundRepeat = "no-repeat";
 			tile.style.backgroundSize = 'cover';
 		}
